@@ -1,0 +1,1 @@
+from pipelines.osinfo.dump_db import *  # noqa
