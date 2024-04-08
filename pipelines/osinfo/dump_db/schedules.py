@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Schedules for the database dump pipeline
+Schedules for the database dump pipeline.
 """
 
 from datetime import datetime, timedelta
@@ -19,7 +19,7 @@ from pipelines.constants import constants
 #####################################
 
 os_info_queries_weekly = {
-        "usuario": {
+    "usuario": {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -60,7 +60,7 @@ os_info_queries_weekly = {
                 `TEL_SMS_CONSULTA` as `TELEFONE_SMS_CONSULTA`,
                 `TEL_SMS_EXAME` as `TELEFONE_SMS_EXAME`, `EMAIL`,
                 `DT_ULTIMA_ATUALIZ` as `DATA_ULTIMA_ATUALIZACAO`,
-                `DATA_AVALIACAO_CONTADORES` as `DATA_AVALIACAO`       
+                `DATA_AVALIACAO_CONTADORES` as `DATA_AVALIACAO`
             FROM `adm_osinfo`.`adm_unidade`;""",
         "materialize_after_dump": True,
     },
@@ -87,7 +87,7 @@ os_info_queries_weekly = {
             FROM `adm_osinfo`.`adm_perfil`;
         """,
         "materialize_after_dump": True,
-    },    
+    },
     "administracao_unidade_perfil": {
         "dump_mode": "overwrite",
         "execute_query": """
@@ -110,11 +110,11 @@ os_info_queries_weekly = {
             FROM `osinfo`.`tipo_documento`;
         """,
         "materialize_after_dump": True,
-    },    
+    },
 }
 
 os_info_queries_daily = {
-    "despesas": { #Diária
+    "despesas": {  # Diária
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -142,8 +142,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`documento`;
         """,
         "materialize_after_dump": True,
-    },    
-    "contrato": { # Diário
+    },
+    "contrato": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -166,8 +166,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`contrato`;
         """,
         "materialize_after_dump": True,
-    },    
-    "plano_contas": { # Diário
+    },
+    "plano_contas": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -177,11 +177,11 @@ os_info_queries_daily = {
             `N1` as `ID_DESPESA_N1`,
             `N2` as `ID_DESPESA_N2`,
             `FLG_ATIVO`
-            FROM `osinfo`.`despesa`;	
+            FROM `osinfo`.`despesa`;
         """,
         "materialize_after_dump": True,
-    },    
-    "rubrica": { # Diário 
+    },
+    "rubrica": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -191,8 +191,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`rubrica`;
         """,
         "materialize_after_dump": True,
-    },    
-    "secretaria": { # diário
+    },
+    "secretaria": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -206,8 +206,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`secretaria`;
         """,
         "materialize_after_dump": True,
-    },    
-    "contrato_terceiros": { # Diário
+    },
+    "contrato_terceiros": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -224,11 +224,11 @@ os_info_queries_daily = {
             `REF_MES` as `REFERENCIA_MES_RECEITA`,
             `ID_IMAGEM` as `FLG_IMAGEM`,
             `IMAGEM_CONTRATO`
-            FROM `osinfo`.`serv_ter`;	
+            FROM `osinfo`.`serv_ter`;
         """,
         "materialize_after_dump": True,
-    },    
-    "receita_dados": { # Diário
+    },
+    "receita_dados": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -245,8 +245,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`receita_dados`;
         """,
         "materialize_after_dump": True,
-    },    
-    "receita_item": { # diário
+    },
+    "receita_item": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -258,8 +258,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`receita_item`;
         """,
         "materialize_after_dump": True,
-    },    
-    "saldo_dados": { # diário
+    },
+    "saldo_dados": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -275,8 +275,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`saldo_dados`;
         """,
         "materialize_after_dump": True,
-    },    
-    "saldo_item": { # diário
+    },
+    "saldo_item": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -288,8 +288,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`saldo_item`;
         """,
         "materialize_after_dump": True,
-    },    
-    "conta_bancaria": { # diário
+    },
+    "conta_bancaria": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -299,12 +299,12 @@ os_info_queries_daily = {
             `DIGITO_CC`,
             `FLG_ATIVO`,
             `COD_OS` as `COD_ORGANIZACAO`,
-            `ID_CONTA_BANCARIA_TIPO` as `COD_TIPO` 
+            `ID_CONTA_BANCARIA_TIPO` as `COD_TIPO`
             FROM `osinfo`.`conta_bancaria`;
         """,
         "materialize_after_dump": True,
-    },    
-    "conta_bancaria_tipo": { # diário
+    },
+    "conta_bancaria_tipo": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -314,8 +314,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`conta_bancaria_tipo`;
         """,
         "materialize_after_dump": True,
-    },    
-    "agencia": { # diário
+    },
+    "agencia": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -328,8 +328,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`agencia`;
         """,
         "materialize_after_dump": True,
-    },     
-    "banco": { # diário
+    },
+    "banco": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -341,8 +341,8 @@ os_info_queries_daily = {
             FROM `osinfo`.`banco`;
         """,
         "materialize_after_dump": True,
-    },    
-    "itens_nota_fiscal": { # Diário
+    },
+    "itens_nota_fiscal": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -364,8 +364,8 @@ os_info_queries_daily = {
             FROM `osinfo_V2`.`tb_itens_nota_fiscal`;
         """,
         "materialize_after_dump": True,
-    },    
-    "fornecedor": { # Diário
+    },
+    "fornecedor": {  # Diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -395,8 +395,8 @@ os_info_queries_daily = {
             FROM `osinfo_V2`.`si_fornecedor`;
         """,
         "materialize_after_dump": True,
-    },    
-    "historico_alteracoes": { # diário
+    },
+    "historico_alteracoes": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -414,8 +414,8 @@ os_info_queries_daily = {
             FROM `osinfo_V2`.`tb_historico_alteracoes`;
         """,
         "materialize_after_dump": True,
-    },    
-    "tipo_arquivo": { # diário
+    },
+    "tipo_arquivo": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -427,7 +427,7 @@ os_info_queries_daily = {
         """,
         "materialize_after_dump": True,
     },
-    "fechamento": { # diário
+    "fechamento": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -444,8 +444,8 @@ os_info_queries_daily = {
             FROM `osinfo_V2`.`tb_fechamento`;
         """,
         "materialize_after_dump": True,
-    }, 
-    "estado_entrega": { # diário
+    },
+    "estado_entrega": {  # diário
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
@@ -456,7 +456,7 @@ os_info_queries_daily = {
             FROM `osinfo_V2`.`tb_estado_entrega`;
         """,
         "materialize_after_dump": True,
-    },                                                                                                
+    },
 }
 
 os_info_clocks_daily = generate_dump_db_schedules(

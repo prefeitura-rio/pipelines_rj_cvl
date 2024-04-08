@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Database dumping flows for EGPWeb project
+Database dumping flows for EGPWeb project.
 """
 
 from copy import deepcopy
@@ -15,9 +15,7 @@ from prefeitura_rio.pipelines_utils.state_handlers import (
 )
 
 from pipelines.constants import constants
-from pipelines.osinfo.dump_db.schedules import (
-    os_info_update_schedule,
-)
+from pipelines.osinfo.dump_db.schedules import os_info_update_schedule
 
 os_info_flow = deepcopy(dump_sql_flow)
 os_info_flow.name = "CVL: OSInfo - Ingerir tabelas de banco SQL"
@@ -31,18 +29,16 @@ os_info_flow.run_config = KubernetesRun(
 )
 
 os_info_default_parameters = {
-    "db_database":"OSINFO",
-    "db_host":"10.70.4.188",
-    "db_port":"3306",
-    "db_type":"mysql",
+    "db_database": "OSINFO",
+    "db_host": "10.70.4.188",
+    "db_port": "3306",
+    "db_type": "mysql",
     "infisical_secret_path": "/db-osinfo",
     "materialization_mode": "prod",
     "dataset_id": "adm_contrato_gestao",
     "materialize_to_datario": False,
 }
-os_info_flow = set_default_parameters(
-    os_info_flow, default_parameters=os_info_default_parameters
-)
+os_info_flow = set_default_parameters(os_info_flow, default_parameters=os_info_default_parameters)
 
 os_info_flow.schedule = os_info_update_schedule
 
