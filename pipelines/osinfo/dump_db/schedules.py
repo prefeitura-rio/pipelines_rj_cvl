@@ -480,7 +480,7 @@ os_info_clocks_weekly = generate_dump_db_schedules(
     labels=[
         constants.RJ_CVL_AGENT_LABEL.value,
     ],
-    db_database="OSINFO",
+    db_database="osinfo_V2",
     db_host="10.70.4.188",
     db_port="3306",
     db_type="mysql",

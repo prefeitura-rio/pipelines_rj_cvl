@@ -29,7 +29,7 @@ os_info_flow.run_config = KubernetesRun(
 )
 
 os_info_default_parameters = {
-    "db_database": "OSINFO",
+    "db_database": "osinfo_V2",
     "db_host": "10.70.4.188",
     "db_port": "3306",
     "db_type": "mysql",
