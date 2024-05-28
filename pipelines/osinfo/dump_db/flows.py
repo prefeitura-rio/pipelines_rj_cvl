@@ -36,6 +36,7 @@ os_info_default_parameters = {
     "infisical_secret_path": "/db-osinfo",
     "materialization_mode": "prod",
     "dataset_id": "adm_contrato_gestao",
+    "database_charset": "latin1",
     "materialize_to_datario": False,
 }
 os_info_flow = set_default_parameters(os_info_flow, default_parameters=os_info_default_parameters)

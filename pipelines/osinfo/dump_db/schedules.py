@@ -470,6 +470,7 @@ os_info_clocks_daily = generate_dump_db_schedules(
     db_port="3306",
     db_type="mysql",
     dataset_id="adm_contrato_gestao",
+    database_charset="latin1", 
     infisical_secret_path="/db-osinfo",
     table_parameters=os_info_queries_daily,
 )
@@ -485,6 +486,7 @@ os_info_clocks_weekly = generate_dump_db_schedules(
     db_port="3306",
     db_type="mysql",
     dataset_id="adm_contrato_gestao",
+    database_charset="latin1",
     infisical_secret_path="/db-osinfo",
     table_parameters=os_info_queries_weekly,
 )
