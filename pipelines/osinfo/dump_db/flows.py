@@ -42,6 +42,7 @@ os_info_default_parameters = {
     "dataset_id": "adm_contrato_gestao",
     "db_charset": "utf8",
     "materialize_to_datario": False,
+    "biglake_table": True,
 }
 os_info_flow = set_default_parameters(os_info_flow, default_parameters=os_info_default_parameters)
 
