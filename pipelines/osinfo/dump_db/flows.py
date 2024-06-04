@@ -26,6 +26,10 @@ os_info_flow.run_config = KubernetesRun(
     labels=[
         constants.RJ_CVL_AGENT_LABEL.value,
     ],
+    cpu_limit="1",
+    cpu_request="1",
+    memory_limit="12Gi",
+    memory_request="12Gi",
 )
 
 os_info_default_parameters = {
@@ -36,7 +40,7 @@ os_info_default_parameters = {
     "infisical_secret_path": "/db-osinfo",
     "materialization_mode": "prod",
     "dataset_id": "adm_contrato_gestao",
-    "db_charset": "latin1",
+    "db_charset": "utf8",
     "materialize_to_datario": False,
 }
 os_info_flow = set_default_parameters(os_info_flow, default_parameters=os_info_default_parameters)
