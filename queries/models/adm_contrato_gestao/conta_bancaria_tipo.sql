@@ -1,0 +1,1 @@
+SELECT * FROM `rj-cvl.adm_contrato_gestao_staging.conta_bancaria_tipo`;
