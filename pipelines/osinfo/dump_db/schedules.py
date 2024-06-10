@@ -474,6 +474,8 @@ os_info_queries_daily = {
 #     table_parameters=os_info_queries_daily,
 # )
 
+os_info_queries_weekly.update(os_info_queries_daily)
+
 os_info_clocks_weekly = generate_dump_db_schedules(
     interval=timedelta(days=7),
     start_date=datetime(2024, 6, 10, 19, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
@@ -487,7 +489,7 @@ os_info_clocks_weekly = generate_dump_db_schedules(
     dataset_id="adm_contrato_gestao",
     db_charset="utf8",
     infisical_secret_path="/db-osinfo",
-    table_parameters=os_info_queries_weekly.update(os_info_queries_daily),
+    table_parameters=os_info_queries_weekly,
 )
 
 # combine the two clocks
