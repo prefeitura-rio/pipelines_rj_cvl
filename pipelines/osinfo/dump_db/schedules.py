@@ -106,7 +106,6 @@ os_info_queries_weekly = {
             SELECT
             `ID_TIPO_DOCUMENTO`,
             `COD_TIPO_DOCUMENTO` as  `TIPO_DOCUMENTO`,
-            `TIPO_DOCUMENTO`
             FROM `osinfo`.`tipo_documento`;
         """,
         "materialize_after_dump": True,
@@ -157,7 +156,7 @@ os_info_queries_daily = {
             `DT_INICIO` as `DATA_INICIO`,
             `VLR_TOTAL` as `VALOR_TOTAL`,
             `VLR_ANO1` as `VALOR_ANO1`,
-            `VLR_PARCELAS` as `VALOR_ANO1`,
+            `VLR_PARCELAS` as `VALOR_PARCELAS`,
             `VLR_FIXO` as `VALOR_FIXO`,
             `VLR_VARIAVEL` as `VALOR_VARIAVEL`,
             `OBSERVACAO`,
@@ -460,7 +459,7 @@ os_info_queries_daily = {
 }
 
 os_info_clocks_daily = generate_dump_db_schedules(
-    interval=timedelta(days=1),
+    interval=timedelta(days=7),
     start_date=datetime(2024, 5, 24, 18, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
     labels=[
         constants.RJ_CVL_AGENT_LABEL.value,
