@@ -458,25 +458,27 @@ os_info_queries_daily = {
     },
 }
 
-os_info_clocks_daily = generate_dump_db_schedules(
-    interval=timedelta(days=7),
-    start_date=datetime(2024, 5, 24, 18, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
-    labels=[
-        constants.RJ_CVL_AGENT_LABEL.value,
-    ],
-    db_database="osinfo_V2",
-    db_host="10.70.4.188",
-    db_port="3306",
-    db_type="mysql",
-    dataset_id="adm_contrato_gestao",
-    db_charset="utf8",
-    infisical_secret_path="/db-osinfo",
-    table_parameters=os_info_queries_daily,
-)
+# os_info_clocks_daily = generate_dump_db_schedules(
+#     interval=timedelta(days=7),
+#     start_date=datetime(2024, 6, 10, 19, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
+#     labels=[
+#         constants.RJ_CVL_AGENT_LABEL.value,
+#     ],
+#     db_database="osinfo_V2",
+#     db_host="10.70.4.188",
+#     db_port="3306",
+#     db_type="mysql",
+#     dataset_id="adm_contrato_gestao",
+#     db_charset="utf8",
+#     infisical_secret_path="/db-osinfo",
+#     table_parameters=os_info_queries_daily,
+# )
+
+os_info_queries_weekly.update(os_info_queries_daily)
 
 os_info_clocks_weekly = generate_dump_db_schedules(
     interval=timedelta(days=7),
-    start_date=datetime(2024, 5, 24, 18, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
+    start_date=datetime(2024, 6, 10, 19, 0, tzinfo=pytz.timezone("America/Sao_Paulo")),
     labels=[
         constants.RJ_CVL_AGENT_LABEL.value,
     ],
@@ -491,6 +493,6 @@ os_info_clocks_weekly = generate_dump_db_schedules(
 )
 
 # combine the two clocks
-os_info_clocks = os_info_clocks_daily + os_info_clocks_weekly
+os_info_clocks = os_info_clocks_weekly #+ os_info_clocks_daily
 
 os_info_update_schedule = Schedule(clocks=untuple(os_info_clocks))

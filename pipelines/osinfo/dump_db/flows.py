@@ -43,6 +43,7 @@ os_info_default_parameters = {
     "db_charset": "utf8",
     "materialize_to_datario": False,
     "biglake_table": True,
+    "dump_to_gcs": True,
 }
 os_info_flow = set_default_parameters(os_info_flow, default_parameters=os_info_default_parameters)
 
