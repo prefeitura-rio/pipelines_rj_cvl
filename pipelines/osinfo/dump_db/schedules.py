@@ -105,7 +105,8 @@ os_info_queries_weekly = {
         "execute_query": """
             SELECT
             `ID_TIPO_DOCUMENTO`,
-            `COD_TIPO_DOCUMENTO` as  `TIPO_DOCUMENTO`
+            `COD_TIPO_DOCUMENTO` as  `TIPO_DOCUMENTO`,
+            `TIPO_DOCUMENTO` as `DOCUMENTO`
             FROM `osinfo`.`tipo_documento`;
         """,
         "materialize_after_dump": True,
