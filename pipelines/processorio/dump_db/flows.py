@@ -31,7 +31,7 @@ rj_cvl_processorio_flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 rj_cvl_processorio_flow.run_config = KubernetesRun(
     image=constants.DOCKER_IMAGE.value,
     labels=[
-        constants.RJ_IPLANRIO_AGENT_LABEL.value,  # label do agente
+        constants.RJ_CVL_AGENT_LABEL.value,  # label do agente
     ],
     # cpu_limit="500m",
     # cpu_request="500m",
