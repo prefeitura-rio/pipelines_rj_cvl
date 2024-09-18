@@ -494,6 +494,6 @@ os_info_clocks_weekly = generate_dump_db_schedules(
 )
 
 # combine the two clocks
-os_info_clocks = os_info_clocks_weekly #+ os_info_clocks_daily
+os_info_clocks = os_info_clocks_weekly  # + os_info_clocks_daily
 
 os_info_update_schedule = Schedule(clocks=untuple(os_info_clocks))
