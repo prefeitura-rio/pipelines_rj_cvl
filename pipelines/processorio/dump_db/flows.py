@@ -25,7 +25,7 @@ rj_cvl_processorio_flow.state_handlers = [
     handler_inject_bd_credentials,
     handler_initialize_sentry,
 ]
-rj_cvl_processorio_flow.name = "CASA CIVIL: processo.rio - Ingerir tabelas de banco SQL"
+rj_cvl_processorio_flow.name = "CVL: processo.rio - Ingerir tabelas de banco SQL"
 rj_cvl_processorio_flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 
 rj_cvl_processorio_flow.run_config = KubernetesRun(
