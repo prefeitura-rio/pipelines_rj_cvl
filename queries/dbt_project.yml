@@ -27,3 +27,6 @@ models:
     adm_contrato_gestao:
       +materialized: table
       +schema: adm_contrato_gestao
+    adm_processo_interno_processorio:
+      +materialized: table
+      +schema: adm_processo_interno_processorio
