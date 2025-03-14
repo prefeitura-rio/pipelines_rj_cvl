@@ -35,4 +35,4 @@ templates__run_dbt_model_smas__flow = set_default_parameters(
     default_parameters=templates_run_dbt_model_smas_default_parameters,
 )
 
-# comment to trigger actions 1
+# comment to trigger actions
