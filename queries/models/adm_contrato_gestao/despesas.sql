@@ -15,7 +15,7 @@ SELECT
   SAFE_CAST(DATE(data_emissao) AS DATE) AS data_emissao,
   SAFE_CAST(DATE(data_vencimento) AS DATE) AS data_vencimento,
   SAFE_CAST(DATE(data_pagamento) AS DATE) AS data_pagamento,
-  SAFE_CAST(DATE(data_apuracao) AS DATE) AS data_apuracao,
+  SAFE_CAST(data_apuracao AS DATE) AS data_apuracao,
   SAFE_CAST(TRIM(valor_documento) AS NUMERIC) AS valor_documento,
   SAFE_CAST(TRIM(valor_pago) AS NUMERIC) AS valor_pago,
   SAFE_CAST(REGEXP_REPLACE(TRIM(id_despesa), r'\.0$', '') AS STRING) AS id_despesa,
